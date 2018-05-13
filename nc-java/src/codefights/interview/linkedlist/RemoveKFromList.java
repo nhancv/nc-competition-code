@@ -36,15 +36,6 @@ package codefights.interview.linkedlist;
  * Return l with all the values equal to k removed.
  */
 
-class ListNode<T> {
-    ListNode(T x) {
-        value = x;
-    }
-
-    T value;
-    ListNode<T> next;
-}
-
 public class RemoveKFromList {
     ListNode removeKFromList(ListNode<Integer> l, int k) {
         ListNode list = new ListNode<>(0);
