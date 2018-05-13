@@ -40,11 +40,4 @@ public class FirstDuplicate {
         }
         return -1;
     }
-
-    public static void main(String[] args) {
-        FirstDuplicate firstDuplicate = new FirstDuplicate();
-        System.out.println(firstDuplicate.firstDuplicate(new int[]{2, 1, 3, 5, 3, 2}));
-    }
-
-
 }
