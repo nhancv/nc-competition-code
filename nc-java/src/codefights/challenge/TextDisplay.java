@@ -5,8 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.KeyStroke;
+
 /**
  * https://codefights.com/challenge/kPqbi8hC8d47Tpm8d
+ * https://help.adobe.com/en_US/AS2LCR/Flash_10.0/help.html?content=00000520.html
  * Hey! We've all used a text editor before (you're probably about to use one right now!) but have you ever wondered how they work behind the scenes? In this series of challenges we'll be looking at some of the interesting programmatic ideas involved in text editors.
  * <p>
  * Let's start with something relatively simple: we'll just display some text the user typed. More formally, given a series of keystrokes (in the form of an array of key codes), we'd like to return the resulting string.
@@ -38,16 +41,18 @@ import java.util.Vector;
 public class TextDisplay {
 
     public String textDisplay(int[] I) {
-        Vector<Character> r = new Vector<>();
+        List<Character> r = new Vector<>();
         int c = 0, l, t;
         String s = "";
         for (int k : I) {
             l = r.size();
-            t = k == 8 ? c > 0 ? r.remove(--c) : 0 : k == 46 ? c < l ? r.remove(c) : 0 : 0;
-            c = k == 35 ? l : k == 36 ? 0 : k == 37 ? c > 0 ? c - 1 : c : k == 39 ? c < l ? c + 1 : c : c;
+            c = k == 35 ? l : k == 36 ? 0 : c;
+            t = c > 0 ? k == 8 ? r.remove(--c) : k == 37 ? c-- : 0 : 0;
+            t = c < l ? k == 46 ? r.remove(c) : k == 39 ? c++ : 0 : 0;
             if (k == 32 || k > 47)
-                r.add(c++, k == 186 ? ';' : k == 188 ? ',' : k == 190 ? '.' : k == 222 ? '\'' : (char) k);
+                r.add(c++, (char)(k == 186 ? 59 : k == 222 ? 39 : k > 187 ? k - 144 : k));
         }
+
         for (Object x : r) s += x;
         return s.toLowerCase();
     }
