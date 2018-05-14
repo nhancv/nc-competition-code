@@ -34,57 +34,30 @@ import java.util.List;
  * The final result of what the user typed after all the key codes are processed.
  */
 public class TextDisplay {
-    public String textDisplay(int[] keycodes) {
-        if (keycodes.length == 0) return "";
-        List<Character> res = new ArrayList<>();
-        int cursor = 0;
-        for (int i = 0; i < keycodes.length; i++) {
-            int code = keycodes[i];
-            switch (code) {
-                case 8: //backspace
-                    if (cursor > 0 && cursor <= res.size()) {
-                        res.remove(--cursor);
-                    }
-                    break;
-                case 46: //delete
-                    if(cursor>=0 && cursor < res.size()){
-                        res.remove(cursor);
-                    }
-                    break;
-                case 35: //end
-                    cursor = res.size();
-                    break;
-                case 36: //home
-                    cursor = 0;
-                    break;
-                case 37: //left arrow
-                    if (cursor > 0) cursor--;
-                    break;
-                case 39: //right arrow
-                    if (cursor < res.size()) cursor++;
-                    break;
-                case 186: //semi-colon
-                    res.add(cursor++, ';');
-                    break;
-                case 188: //comma
-                    res.add(cursor++, ',');
-                    break;
-                case 190: //period
-                    res.add(cursor++, '.');
-                    break;
-                case 222: //single quote
-                    res.add(cursor++, '\'');
-                    break;
-                default:
-                    res.add(cursor++, Character.toLowerCase((char) code));
-                    break;
-            }
+    public String textDisplay(int[] I) {
+        List<Character> r = new ArrayList<>();
+        int c = 0;
+        for (int k : I) {
+            int l = r.size();
+            if (k == 8) {
+                if (c > 0) r.remove(--c);
+            } else if (k == 46) {
+                if (c < l) r.remove(c);
+            } else if (k == 35) {
+                c = l;
+            } else if (k == 36) {
+                c = 0;
+            } else if (k == 37) {
+                if (c > 0) c--;
+            } else if (k == 39) {
+                if (c < l) c++;
+            } else r.add(c++, k == 186 ? ';' : k == 188 ? ',' : k == 190 ? '.' : k == 222 ? '\'' : (char) k);
         }
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < res.size(); i++) {
-            s.append(res.get(i));
+        String s = "";
+        for (Character re : r) {
+            s += re;
         }
-        return s.toString();
+        return s.toLowerCase();
     }
 
 }
