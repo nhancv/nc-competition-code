@@ -49,12 +49,11 @@ public class TextDisplay {
             c = k == 35 ? l : k == 36 ? 0 : c;
             t = c > 0 ? k == 8 ? r.remove(--c) : k == 37 ? c-- : 0 : 0;
             t = c < l ? k == 46 ? r.remove(c) : k == 39 ? c++ : 0 : 0;
-            if (k == 32 || k > 47)
-                r.add(c++, (char)(k == 186 ? 59 : k == 222 ? 39 : k > 187 ? k - 144 : k));
+            if (k == 32 | k > 47)
+                r.add(c++, (char)(k == 186 ? 59 : k == 222 ? 39 : k > 187 ? k - 144 : k|32));
         }
-
         for (Object x : r) s += x;
-        return s.toLowerCase();
+        return s;
     }
 
 }
