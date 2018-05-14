@@ -10,11 +10,12 @@ import java.util.concurrent.*;
 
 import codefights.arcade.intro.CommonCharacterCount;
 import codefights.arcade.intro.IsLucky;
+import codefights.arcade.intro.ReverseParentheses;
 
 public class Main {
 
     public static void main(String[] args) {
-        IsLucky isLucky = new IsLucky();
-        System.out.println(isLucky.isLucky(239017));
+        ReverseParentheses test = new ReverseParentheses();
+        System.out.println(test.reverseParentheses("Where are the parentheses?"));
     }
 }
