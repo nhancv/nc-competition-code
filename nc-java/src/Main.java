@@ -9,12 +9,12 @@ import java.util.function.*;
 import java.util.concurrent.*;
 
 import codefights.arcade.intro.CommonCharacterCount;
+import codefights.arcade.intro.IsLucky;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        CommonCharacterCount commonCharacterCount = new CommonCharacterCount();
-        commonCharacterCount.commonCharacterCount("aabcc", "adcaa");
+        IsLucky isLucky = new IsLucky();
+        System.out.println(isLucky.isLucky(239017));
     }
 }
