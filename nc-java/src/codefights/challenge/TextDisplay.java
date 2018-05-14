@@ -1,7 +1,9 @@
 package codefights.challenge;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * https://codefights.com/challenge/kPqbi8hC8d47Tpm8d
@@ -34,29 +36,19 @@ import java.util.List;
  * The final result of what the user typed after all the key codes are processed.
  */
 public class TextDisplay {
+
     public String textDisplay(int[] I) {
-        List<Character> r = new ArrayList<>();
-        int c = 0;
-        for (int k : I) {
-            int l = r.size();
-            if (k == 8) {
-                if (c > 0) r.remove(--c);
-            } else if (k == 46) {
-                if (c < l) r.remove(c);
-            } else if (k == 35) {
-                c = l;
-            } else if (k == 36) {
-                c = 0;
-            } else if (k == 37) {
-                if (c > 0) c--;
-            } else if (k == 39) {
-                if (c < l) c++;
-            } else r.add(c++, k == 186 ? ';' : k == 188 ? ',' : k == 190 ? '.' : k == 222 ? '\'' : (char) k);
-        }
+        Vector<Character> r = new Vector<>();
+        int c = 0, l, t;
         String s = "";
-        for (Character re : r) {
-            s += re;
+        for (int k : I) {
+            l = r.size();
+            t = k == 8 ? c > 0 ? r.remove(--c) : 0 : k == 46 ? c < l ? r.remove(c) : 0 : 0;
+            c = k == 35 ? l : k == 36 ? 0 : k == 37 ? c > 0 ? c - 1 : c : k == 39 ? c < l ? c + 1 : c : c;
+            if (k == 32 || k > 47)
+                r.add(c++, k == 186 ? ';' : k == 188 ? ',' : k == 190 ? '.' : k == 222 ? '\'' : (char) k);
         }
+        for (Object x : r) s += x;
         return s.toLowerCase();
     }
 
