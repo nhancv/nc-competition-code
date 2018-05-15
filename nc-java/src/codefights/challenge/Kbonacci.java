@@ -41,11 +41,11 @@ public class Kbonacci {
      * f(i) = 2f(i-1) - f(i-k-1)
      * i = [1..n-k]
      */
+    int i;
 
     public String kbonacci(int k, int n) {
-        BigInteger[] t = new BigInteger[n + k + 1];
-        int i = -1;
-        while (++i <= n)
+        BigInteger[] t = new BigInteger[n + 1];
+        for (; i <= n; i++)
             t[i] = i > k ? t[i - 1].add(t[i - 1]).subtract(t[i - k - 1]) : BigInteger.valueOf(i < k ? 1 : k);
         return t[n].toString();
     }
