@@ -1,8 +1,6 @@
 package codefights.challenge;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * https://codefights.com/challenge/sbbmjCsPhn77Qkqtm/solutions
@@ -37,27 +35,19 @@ import java.util.Arrays;
  */
 public class Kbonacci {
 
-    BigInteger[] b;
-
-    BigInteger f(int k, int n) {
-        if (k == 1 | n < k) return b[n] = BigInteger.ONE;
-        if (n == k) return b[n] = BigInteger.valueOf(k);
-        return b[n] == null ? b[n] = BigInteger.valueOf(2).multiply(b[n - 1] == null ? b[n - 1] = f(k, n - 1) : b[n - 1]).subtract(b[n - k - 1] == null ? b[n - k - 1] = f(k, n - k - 1) : b[n - k - 1]) : b[n];
-    }
+    /**
+     * k==1 | n < k => 1
+     * n==k => k
+     * f(i) = 2f(i-1) - f(i-k-1)
+     * i = [1..n-k]
+     */
 
     public String kbonacci(int k, int n) {
-        b = new BigInteger[n + 1];
-        if (n > k) {
-            int x = n - k;
-            BigInteger total = BigInteger.valueOf(2).pow(x - 1).multiply(BigInteger.valueOf(2 * k - 1));
-            if (x > 1) {
-                for (int i = x - 1; i > 0; i--) {
-                    total = total.subtract(BigInteger.valueOf(2).pow(i - 1).multiply(b[x - i] == null ? b[x - i] = f(k, x - i) : b[x - i]));
-                }
-            }
-            return total.toString();
-        } else return f(k, n).toString();
-
+        BigInteger[] t = new BigInteger[n + k + 1];
+        int i = -1;
+        while (++i <= n)
+            t[i] = i > k ? t[i - 1].add(t[i - 1]).subtract(t[i - k - 1]) : BigInteger.valueOf(i < k ? 1 : k);
+        return t[n].toString();
     }
 
 }

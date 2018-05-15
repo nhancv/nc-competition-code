@@ -14,7 +14,7 @@ import codefights.challenge.TextDisplay;
 public class Main {
     public static void main(String[] args) {
         Kbonacci test = new Kbonacci();
-//        System.out.println(test.kbonacci(5, 10));
-        System.out.println(test.kbonacci(1001, 25000));
+        System.out.println(test.kbonacci(2, 10));
+//        System.out.println(test.kbonacci(1001, 25000));
     }
 }
