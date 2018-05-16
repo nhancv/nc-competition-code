@@ -50,18 +50,17 @@ public class PerfectCity {
         Vector<double[]> vx2 = makeVz(x2);
         Vector<double[]> vy2 = makeVz(y2);
 
-        for (int i = 0; i < vx1.size(); i++) {
-            for (int j = 0; j < vy1.size(); j++) {
-                for (int k = 0; k < vx2.size(); k++) {
-                    for (int l = 0; l < vy2.size(); l++) {
-                        d = Math.min(d, fway(vx1.get(i)[0], vy1.get(j)[0], vx2.get(k)[0], vy2.get(l)[0]) +
-                            vx1.get(i)[1] + vy1.get(j)[1] + vx2.get(k)[1] + vy2.get(l)[1]
+        for (double[] aVx1 : vx1) {
+            for (double[] aVy1 : vy1) {
+                for (double[] aVx2 : vx2) {
+                    for (double[] aVy2 : vy2) {
+                        d = Math.min(d, fway(aVx1[0], aVy1[0], aVx2[0], aVy2[0]) +
+                                aVx1[1] + aVy1[1] + aVx2[1] + aVy2[1]
                         );
                     }
                 }
             }
         }
-        System.out.println(d);
         return d;
     }
 }
