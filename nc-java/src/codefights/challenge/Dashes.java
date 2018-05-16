@@ -24,7 +24,7 @@ public class Dashes {
         c = new int[n];
         for (m = n / 2; i <= m; r[i] = r[n - i++ - 1] = new String(c, 0, n))
             for (j = 0; j <= m; j++)
-                c[m - j] = c[m + j] = j < 1 ? (i % 2 > 0 ? 124 : 45) : c[m + j - 1] > 123 ? 45 : j > i ? 32 : 124;
+                c[m - j] = c[m + j] = j < 1 ? i % 2 > 0 ? 124 : 45 : c[m + j - 1] > 123 ? 45 : j > i ? 32 : 124;
 
         return r;
     }
