@@ -42,12 +42,12 @@ public class Kbonacci {
      * i = [1..n-k]
      */
     int i;
+    BigInteger t[], r;
 
     public String kbonacci(int k, int n) {
-        BigInteger[] t = new BigInteger[n + 1];
-        for (; i <= n; i++)
-            t[i] = i > k ? t[i - 1].add(t[i - 1]).subtract(t[i - k - 1]) : BigInteger.valueOf(i < k ? 1 : k);
-        return t[n].toString();
+        for (t = new BigInteger[n + 1]; i <= n; )
+            r = t[i] = i++ > k ? r.add(r).subtract(t[i - k - 2]) : r.valueOf(i > k ? k : 1);
+        return r + "";
     }
 
 }
