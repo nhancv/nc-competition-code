@@ -8,13 +8,14 @@ import java.security.SecureRandom;
 import java.util.function.*;
 import java.util.concurrent.*;
 
+import codefights.challenge.Dashes;
 import codefights.challenge.Kbonacci;
 import codefights.challenge.TextDisplay;
 
 public class Main {
     public static void main(String[] args) {
-        Kbonacci test = new Kbonacci();
-        System.out.println(test.kbonacci(2, 10));
+        Dashes test = new Dashes();
+        System.out.println(Arrays.toString(test.dashes(4)));
 //        System.out.println(test.kbonacci(1000, 25000));
     }
 }
