@@ -46,41 +46,19 @@ package codefights.challenge;
  */
 public class Biggestplus {
 
-    public int[] biggestplus(int[][] arr) {
-        int[] res = new int[]{
-                arr.length, arr.length
-        };
-        int resSize = 0;
+    int l[], m, i, j, z, o, p, t, x, y;
 
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = 1; j < arr[i].length; j++) {
-                int size = 1;
-                while (j - size >= 0 &&
-                        j + size < arr[i].length &&
-                        i - size >= 0 &&
-                        i + size < arr.length &&
-                        arr[i][j] == arr[i][j - size] &&
-                        arr[i][j] == arr[i][j + size] &&
-                        arr[i][j] == arr[i - size][j] &&
-                        arr[i][j] == arr[i + size][j])
-                    size++;
-                if (size > 1) {
-                    if (size > resSize) {
-                        resSize = size;
-                        res[0] = i;
-                        res[1] = j;
-                    } else if (size == resSize) {
-                        if (res[0] > i) {
-                            res[0] = i;
-                            res[1] = j;
-                        }
+    public int[] biggestplus(int[][] a) {
+        for (o = a.length; i < o; i++)
+            for (l = a[i], p = l.length, j = 1; j < p; j++)
+                for (t = l[j], z = 0; j >= z & j + z < p & i >= z & i + z < o &&
+                        (t ^ l[j - z] | t ^ l[j + z] | t ^ a[i - z][j] | t ^ a[i + z][j]) < 1; z++)
+                    if (z > m) {
+                        m = z;
+                        x = i;
+                        y = j;
                     }
-
-                }
-            }
-        }
-
-        return res;
+        return new int[]{x, y};
     }
 
 }
