@@ -20,11 +20,10 @@ import codefights.interview.trees.IsTreeSymmetric;
 import codefights.interview.trees.Tree;
 
 public class Main {
+
+
     public static void main(String[] args) {
-        IsTreeSymmetric test = new IsTreeSymmetric();
-        Tree<Integer> t = new Tree<>(1);
-        t.left = new Tree<>(2);
-        t.right = new Tree<>(3);
-        test.isTreeSymmetric(t);
+
+
     }
 }

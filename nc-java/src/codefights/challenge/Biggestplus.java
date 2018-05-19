@@ -46,19 +46,25 @@ package codefights.challenge;
  */
 public class Biggestplus {
 
-    int l[], m, i, j, z, o, p, t, x, y;
-
-    public int[] biggestplus(int[][] a) {
-        for (o = a.length; i < o; i++)
-            for (l = a[i], p = l.length, j = 1; j < p; j++)
-                for (t = l[j], z = 0; j >= z & j + z < p & i >= z & i + z < o &&
-                        (t ^ l[j - z] | t ^ l[j + z] | t ^ a[i - z][j] | t ^ a[i + z][j]) < 1; z++)
-                    if (z > m) {
-                        m = z;
-                        x = i;
-                        y = j;
-                    }
-        return new int[]{x, y};
+    int r[] = {0, 0}, m, z, i, j;
+    int[] biggestplus(int[][] a) {
+        for (int[] l : a) {
+            j = 0;
+            for (int t : l) {
+                try {
+                    for (z = 0; t == l[j - z] & t == l[j + z] & t == a[i - z][j] & t == a[i + z][j]; z++)
+                        if (z > m) {
+                            m = z;
+                            r[0] = i;
+                            r[1] = j;
+                        }
+                } catch (Exception e) {
+                }
+                j++;
+            }
+            i++;
+        }
+        return r;
     }
 
 }
