@@ -17,13 +17,20 @@ public class Main {
     public static void main(String[] args) {
         KthLargestInBST test = new KthLargestInBST();
 
-        Tree<Integer> t = new Tree<>(3);
-        t.left = new Tree<>(1);
-        t.right = new Tree<>(5);
-        t.right.left = new Tree<>(4);
-        t.right.right = new Tree<>(6);
+//        Tree<Integer> t = new Tree<>(3);
+//        t.left = new Tree<>(1);
+//        t.right = new Tree<>(5);
+//        t.right.left = new Tree<>(4);
+//        t.right.right = new Tree<>(6);
+//
+//        System.out.println(test.kthLargestInBST(t, 4));
 
-        System.out.println(test.kthLargestInBST(t, 5));
+        Tree<Integer> t = new Tree<>(1);
+        t.left = new Tree<>(-1);
+        t.left.left = new Tree<>(-2);
+        t.left.right = new Tree<>(0);
+
+        System.out.println(test.kthLargestInBST(t, 1));
 
     }
 }
