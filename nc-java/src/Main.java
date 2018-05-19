@@ -8,22 +8,22 @@ import java.security.SecureRandom;
 import java.util.function.*;
 import java.util.concurrent.*;
 
-import codefights.challenge.Biggestplus;
-import codefights.challenge.Dashes;
-import codefights.challenge.Kbonacci;
-import codefights.challenge.TextDisplay;
-import codefights.fight.uber.ParkingSpot;
-import codefights.fight.uber.PerfectCity;
-import codefights.interview.hashtables.PossibleSums;
-import codefights.interview.hashtables.SwapLexOrder;
-import codefights.interview.trees.IsTreeSymmetric;
+import codefights.interview.trees.KthLargestInBST;
 import codefights.interview.trees.Tree;
 
 public class Main {
 
 
     public static void main(String[] args) {
+        KthLargestInBST test = new KthLargestInBST();
 
+        Tree<Integer> t = new Tree<>(3);
+        t.left = new Tree<>(1);
+        t.right = new Tree<>(5);
+        t.right.left = new Tree<>(4);
+        t.right.right = new Tree<>(6);
+
+        System.out.println(test.kthLargestInBST(t, 5));
 
     }
 }
