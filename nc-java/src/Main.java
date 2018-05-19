@@ -17,11 +17,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        FindSubstrings test = new FindSubstrings();
-        System.out.println(test.findSubstrings(new String[]{
-                "Apple", "Melon", "Orange", "Watermelon"
-        }, new String[]{
-                "a", "mel", "lon", "el", "An"
-        }));
+
     }
 }
