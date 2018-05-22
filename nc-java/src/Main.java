@@ -19,6 +19,6 @@ public class Main {
 
     public static void main(String[] args) {
         CouldBeAnagram test = new CouldBeAnagram();
-        System.out.println(test.couldBeAnagram("gre?t", "????x"));
+        System.out.println(test.couldBeAnagram("listens", "silent"));
     }
 }

@@ -1,5 +1,7 @@
 package codefights.challenge;
 
+import java.util.Arrays;
+
 /**
  * https://codefights.com/challenge/hqLbYHvpTMZYYLA6h
  */
@@ -14,15 +16,16 @@ public class CouldBeAnagram {
      * return ra - cb == 0 || rb + ca == 0;
      */
 
-    int c[] = new int[255], n, q, t, x, i, g;
+    int c[] = new int[255], n, q, t, x, i, g, u = 63;
+
     public Object couldBeAnagram(String b, String v) {
-        if ((q = b.length()) != v.length()) return false;
+        g = i = (q = b.length()) != v.length() ? q : 0;
         while (i < q) {
             t = b.charAt(i);
             x = v.charAt(i++);
-            if (t != '?') c[t]++;
-            if (x != '?') c[x]--;
-            if (t == '?' || x == '?') n++;
+            if (t != u) c[t]++;
+            if (x != u) c[x]--;
+            if (t == u | x == u) n++;
         }
         for (int z : c) g += z > 0 ? z : -z;
         return g == n;
