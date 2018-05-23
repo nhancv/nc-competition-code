@@ -1,9 +1,8 @@
 package codefights.challenge;
 
 
-import com.sun.tools.javac.util.List;
-
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * https://codefights.com/challenge/vvaEwn4NbpLYGMt5G
@@ -14,7 +13,7 @@ import java.util.Arrays;
 public class LeastAppearance {
 
     int[] leastAppearance(int[][] c) {
-        int [] r = new int[c.length], f = new int[105];
+        int[] r = new int[c.length], f = new int[105];
         for (int[] e : c) f[r[f[0]++] = f[e[1]] < f[e[0]] ? e[1] : e[0]]++;
         return r;
     }
