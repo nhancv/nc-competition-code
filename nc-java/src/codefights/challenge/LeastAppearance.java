@@ -1,8 +1,12 @@
 package codefights.challenge;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
+import java.util.Vector;
 
 /**
  * https://codefights.com/challenge/vvaEwn4NbpLYGMt5G
@@ -12,10 +16,21 @@ import java.util.List;
  */
 public class LeastAppearance {
 
-    int[] leastAppearance(int[][] c) {
-        int[] r = new int[c.length], f = new int[105];
+
+    List leastAppearance(int[][] c) {
+        int [] r = new int[c.length], f = new int[105];
         for (int[] e : c) f[r[f[0]++] = f[e[1]] < f[e[0]] ? e[1] : e[0]]++;
-        return r;
+        return Arrays.asList(r);
     }
+
+//    List leastAppearance(int[][] c) {
+//        List r = new ArrayList();
+//        int f[] = new int[105], x;
+//        for (int[] e : c) {
+//            f[x = f[e[1]] < f[e[0]] ? e[1] : e[0]]++;
+//            r.add(x);
+//        }
+//        return r;
+//    }
 
 }

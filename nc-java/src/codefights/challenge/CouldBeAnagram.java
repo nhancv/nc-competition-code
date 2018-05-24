@@ -9,12 +9,12 @@ import java.util.function.Function;
  */
 public class CouldBeAnagram {
 
-    int c[] = new int[125], g;
+    int c[] = new int[125], i;
+
     Object couldBeAnagram(String b, String v) {
-        for (int x : b.getBytes()) c[x]++;
-        for (int x : v.getBytes()) c[x]--;
-        for (int z : c) g += z < 0 ? -z : z;
-        return g == c[63] * 2;
+        for (int x : (v + b).getBytes())
+            i = (c[x] += i++ < v.length() ? 1 : -1) < 0 & x > 63 ? 0 : i;
+        return 2 * b.length() == i;
     }
 
 
