@@ -56,48 +56,43 @@ public class ShortestPathBetweenDoors {
 
     class P {
         int u, v;
+
         P(int i, int j) {
             u = i;
             v = j;
         }
     }
 
-    int H, W, c, i, j, k, l, b, n;
+    int W, i, j, k, l;
 
     public int shortestPathBetweenDoors(int[][] m) {
-        int p[][] = new int[H = m.length][W = m[0].length];
-        for (i = 0; i < H & c < 2; i++)
-            for (j = 0; j < W & c < 2; j++)
-                if (m[i][j] == 2)
-                    if (c++ < 1) {
-                        k = i;
-                        l = j;
-                    } else {
-                        b = i;
-                        n = j;
+        int p[][] = new int[1001][W = m[0].length];
+        for (; ; i++)
+            for (j = 0; j < W; j++)
+                if (m[i][j] == 2) {
+                    m[i][j] = 0;
+                    Queue<P> q = new ArrayDeque();
+                    q.add(new P(i, j));
+                    while (!q.isEmpty()) {
+                        P a = q.poll();
+                        p[i = a.u][j = a.v]++;
+                        if (m[i][j] == 2) return p[i][j] - 1;
+                        for (P o : new P[]{
+                                new P(i - 1, j),
+                                new P(i, j - 1),
+                                new P(i + 1, j),
+                                new P(i, j + 1)})
+                            try {
+                                if (m[k = o.u][l = o.v] != 1 & p[k][l] < 1) {
+                                    p[k][l] += p[i][j];
+                                    q.add((new P(k, l)));
+                                }
+                            } catch (Exception e) {
+                            }
+
                     }
 
-        Queue<P> q = new ArrayDeque();
-        q.add(new P(k, l));
-        while (!q.isEmpty()) {
-            P a = q.poll();
-            p[i = a.u][j = a.v]++;
-
-            for (P o : new P[]{
-                    new P(i - 1, j),
-                    new P(i, j - 1),
-                    new P(i + 1, j),
-                    new P(i, j + 1)})
-                try {
-                    if (m[k = o.u][l = o.v] != 1 && p[k][l] < 1) {
-                        p[k][l] += p[i][j];
-                        q.add((new P(k, l)));
-                    }
-                } catch (Exception e) {
                 }
-
-        }
-        return p[b][n] - 1;
     }
 
 }
