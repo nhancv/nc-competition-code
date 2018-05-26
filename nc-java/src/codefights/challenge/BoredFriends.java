@@ -7,6 +7,6 @@ import java.math.BigInteger;
  */
 public class BoredFriends {
     int boredFriends(String n) {
-        return new BigInteger(n).mod(BigInteger.valueOf(9)).intValue();
+        return new BigInteger(n).mod(new BigInteger("" + 9)).intValue();
     }
 }
