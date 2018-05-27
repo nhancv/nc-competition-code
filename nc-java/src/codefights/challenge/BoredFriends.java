@@ -1,12 +1,13 @@
 package codefights.challenge;
 
 import java.math.BigInteger;
+import java.util.stream.Stream;
 
 /**
  * https://codefights.com/challenge/X2mPWE5pr4okydBF4
  */
 public class BoredFriends {
     int boredFriends(String n) {
-        return new BigInteger(n).mod(new BigInteger("" + 9)).intValue();
+        return n.chars().map(v -> v - 48).sum() % 9;
     }
 }
