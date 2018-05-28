@@ -8,6 +8,6 @@ import java.util.stream.Stream;
  */
 public class BoredFriends {
     int boredFriends(String n) {
-        return n.chars().map(v -> v - 48).sum() % 9;
+        return n.chars().map(v -> v - 3).sum() % 9;
     }
 }
