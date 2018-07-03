@@ -8,11 +8,9 @@ import java.util.Arrays;
 public class HardSurname {
 
     int m, n;
-    int hardSurname(String s) {
-        s.chars().forEach(v -> {
-            if ("ueoaiUEOAI".indexOf(v) < 0) m = m < ++n ? n : m;
-            else n=0;
-        });
+
+    public int hardSurname(String s) {
+        s.chars().forEach(v -> n = "ueoaiUEOAI".indexOf(v) < 0 ? m < ++n ? m = n : n : 0);
         return m;
     }
 
