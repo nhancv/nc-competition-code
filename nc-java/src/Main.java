@@ -1,12 +1,16 @@
+import codefights.challenge.AreIsomorphic;
 
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            System.out.println("Hello World");
-        } finally {
-            System.out.println("Finally executing");
-        }
+        AreIsomorphic test = new AreIsomorphic();
+        int[][] array1 = new int[2][];
+        array1[0] = new int[]{1, 1, 1};
+        array1[1] = new int[]{0, 0};
+        int[][] array2 = new int[2][];
+        array2[0] = new int[]{2, 1, 1};
+        array2[1] = new int[]{2, 1};
+        System.out.println(test.areIsomorphic(array1, array2));
     }
 
 }
