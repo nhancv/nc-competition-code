@@ -1,7 +1,9 @@
 package codefights.challenge;
 
+//https://app.codesignal.com/challenge/MYQxyzoojoNnaprNi
 public class AreIsomorphic {
 
+    //https://app.codesignal.com/challenge/ymMFKbCwTkQS4pJwu
     public int pepEight(int l) {
         return 80 / ~l;
     }
