@@ -3,7 +3,7 @@ package codefights.challenge;
 public class AreIsomorphic {
 
     public int pepEight(int l) {
-        return l / 80 ^ 1;
+        return 80 / ~l;
     }
 
     int i, x;
